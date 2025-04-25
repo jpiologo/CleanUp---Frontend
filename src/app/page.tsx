@@ -1,3 +1,4 @@
+import { ShinyButton } from '@/components/Shiny-Button'
 import { Heading } from '../components/Heading'
 import MaxWidthWrapper from '../components/MaxWidthWrapper'
 
@@ -22,6 +23,14 @@ export default function Home() {
                 eaque, iusto id quod corrupti?
               </span>
             </p>
+            <div className='w-full max-w-80'>
+              <ShinyButton
+                href='/sign-up'
+                className='relative z-10 h-14 w-full text-base shadow-lg transition-shadow duration-300 hover:shadow-xl'
+              >
+                Book a Clean
+              </ShinyButton>
+            </div>
           </div>
         </MaxWidthWrapper>
       </section>
