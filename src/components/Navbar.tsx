@@ -1,83 +1,48 @@
-import MaxWidthWrapper from './MaxWidthWrapper'
-import Link from 'next/link'
-import { buttonVariants } from '../components/ui/button'
-import { ArrowRight } from 'lucide-react'
+// components/Navbar.tsx
+import Link from "next/link";
+import MaxWidthWrapper from "./MaxWidthWrapper";
+import { Button, buttonVariants } from "./ui/button";
+import { ArrowRight } from "lucide-react";
+import { currentUser } from "@/lib/session";
 
-const Navbar = async () => {
-  //
+export const Navbar = async () => {
+  const user = await currentUser();
 
   return (
-    <nav className='sticky z-[100] h-14 inset-x-0 top-0 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all'>
+    <nav className="sticky z-[100] h-16 inset-x-0 top-0 w-full border-b border-gray-200 bg-white/80 backdrop-blur-lg">
       <MaxWidthWrapper>
-        <div className='flex h-14 items-center justify-between border-b border-zinc-200'>
-          <Link href='/' className='flex z-40 font-semibold'>
-            Case<span className='text-green-600'>Cobra</span>
+        <div className="flex h-16 items-center justify-between">
+          <Link href="/" className="font-semibold flex z-40">
+            Clean<span className="text-brand-700">Up</span>
           </Link>
-          <div className='h-full flex items-center space-x-4'>
+          <div className="h-full flex items-center space-x-4">
             {user ? (
               <>
+                <Button size="sm" variant="ghost">
+                  Sign out
+                </Button>
+                
                 <Link
-                  className={buttonVariants({
-                    size: 'sm',
-                    variant: 'ghost',
-                  })}
+                  href="/dashboard"
+                  className={buttonVariants({ size: "sm", className: "flex items-center gap-1" })}
                 >
-                  Sign Out
-                </Link>
-
-                {isAdmin ? (
-                  <Link
-                    href='/dashboard'
-                    className={buttonVariants({
-                      size: 'sm',
-                      variant: 'ghost',
-                    })}
-                  >
-                    Dashboard ✨
-                  </Link>
-                ) : null}
-                <Link
-                  href='/configure/upload'
-                  className={buttonVariants({
-                    size: 'sm',
-                    className: 'hidden sm:flex items-center gap-1',
-                  })}
-                >
-                  Create Case
-                  <ArrowRight className='ml-1.5 h-5 w-5' />
+                  Dashboard <ArrowRight className="ml-1.5 size-4" />
                 </Link>
               </>
             ) : (
               <>
-                <Link
-                  className={buttonVariants({
-                    size: 'sm',
-                    variant: 'ghost',
-                  })}
-                >
-                  Sign Up
+                <Link href="/pricing" className={buttonVariants({ size: "sm", variant: "ghost" })}>
+                  Pricing
                 </Link>
-
-                <Link
-                  className={buttonVariants({
-                    size: 'sm',
-                    variant: 'ghost',
-                  })}
-                >
-                  Login
+                <Link href="/sign-in" className={buttonVariants({ size: "sm", variant: "ghost" })}>
+                  Sign in
                 </Link>
-
-                <div className='h-8 w-px bg-zinc-200 hidden sm:block' />
-
+                <div className="h-8 w-px bg-gray-200" />
                 <Link
-                  href='/configure/upload'
-                  className={buttonVariants({
-                    size: 'sm',
-                    className: 'hidden sm:flex items-center gap-1',
-                  })}
+                  href="/sign-up"
+                  className={buttonVariants({ size: "sm", className: "flex items-center gap-1.5" })}
                 >
-                  Create Case
-                  <ArrowRight className='ml-1.5 h-5 w-5' />
+                  Sign up <ArrowRight className="size-4" />
                 </Link>
               </>
             )}
@@ -85,9 +50,5 @@ const Navbar = async () => {
         </div>
       </MaxWidthWrapper>
     </nav>
-  )
-}
-
-export default Navbar
-
-//I stoped on 55:10
+  );
+};
