@@ -9,7 +9,7 @@ export default function Home() {
           <div className="relative mx-auto text-center flex flex-col items-center gap-10"> 
             <Heading>
               <span>
-                A spotless home whenever you need it,
+                A Spotless home whenever you need it,
               </span>
               <br />
               <span className="inline-bloc bg-gradient-to-r from-sky-600 to-sky-950 text-transparent bg-clip-text">
