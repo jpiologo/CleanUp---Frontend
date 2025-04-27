@@ -9,6 +9,9 @@ export default function Home() {
       <section className='relative py-24 sm:py-32 bg-brand-25'>
         <MaxWidthWrapper className='text-center'>
           <div className='relative mx-auto text-center flex flex-col items-center gap-10'>
+            <p className='font-light'>
+              Online House-cleaning Service
+            </p>
             <div>
               <Heading className='max-w-prose mx-auto w-full'>
                 <span>A spotless home whenever you need it,</span>
