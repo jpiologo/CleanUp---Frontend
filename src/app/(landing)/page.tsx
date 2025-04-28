@@ -10,7 +10,7 @@ export default function Home() {
         <MaxWidthWrapper className='text-center'>
           <div className='relative mx-auto text-center flex flex-col items-center gap-10'>
             <p className='font-light'>
-              Online House-cleaning Service
+              Online House-cleaning Scheduling
             </p>
             <div>
               <Heading className='max-w-prose mx-auto w-full'>
@@ -33,9 +33,9 @@ export default function Home() {
 
             <ul className='space-y-2 text-base/7 text-gray-600 text-left flex flex-col items-start'>
               {[
-                'Verified Cleaners with expertise',
-                'Online schedule',
-                'Cleaning Plans',
+                'Verified Cleaners',
+                'Online Schedule',
+                'Anywhere, Any Time',
               ].map((item, index) => (
                 // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                 <li key={index} className='flex gap-1.5 items-center text-left'>
