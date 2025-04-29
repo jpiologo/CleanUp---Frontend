@@ -6,7 +6,6 @@ import { useEffect } from 'react'
 import Bubbles from '@/components/Bubbles'
 
 export default function Home() {
-  
 
   return (
     <section className='relative py-24 sm:py-32 bg-brand-25 overflow-hidden'>
