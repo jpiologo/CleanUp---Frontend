@@ -2,14 +2,13 @@ import { ShinyButton } from '@/components/Shiny-Button'
 import { Heading } from '@/components/Heading'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import { Check } from 'lucide-react'
-import { useEffect } from 'react'
 import Bubbles from '@/components/Bubbles'
 
 export default function Home() {
 
   return (
     <section className='relative py-24 sm:py-32 bg-brand-25 overflow-hidden'>
-      <Bubbles count={15} maxSize={100} riseSpeed={30} />
+      <Bubbles count={30} maxSize={150} riseSpeed={40} />
       <MaxWidthWrapper className='text-center relative z-25'>
         <div className='relative mx-auto text-center flex flex-col items-center gap-10'>
           <p className='font-light'>Online House-cleaning Scheduling</p>
