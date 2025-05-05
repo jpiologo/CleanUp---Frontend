@@ -7,17 +7,18 @@ import CleanerIcon from '../../../public/CleanerImg.png'
 import Step1Icon from '../../../public/RequestAClean.png'
 import Step2Icon from '../../../public/CleanerNotification.png'
 import Step3Icon from '../../../public/HelloCleaner.png'
+import { KnowWhatWeOffer } from '@/components/KnowWhatWeOffer'
 
 export default function Home() {
   return (
     <>
-      <section className='relative py-24 sm:py-32 bg-white overflow-hidden'>
+      <section className='relative py-24 sm:py-32 bg-gray-50 overflow-hidden'>
         <Bubbles count={30} maxSize={150} riseSpeed={40} />
         <MaxWidthWrapper className='text-center relative z-25'>
           <div className='relative mx-auto text-center flex flex-col items-center gap-10'>
-            <p className='font-light'>Online House-cleaning Scheduling</p>
-            <Heading className='max-w-prose mx-auto w-full'>
-              <span>A spotless home whenever you need it,</span>
+            <p className='text-base/7 text-gray-600 max-w-prose'>House-cleaning Services</p>
+            <Heading className='max-w-prose mx-auto w-full md:text-5xl lg:text-6xl'>
+              <span>A Spotless Home Whenever you need it,</span>
               <br />
               <span className='inline-block bg-gradient-to-r from-brand-700 to-brand-800 text-transparent bg-clip-text'>
                 Book now and leave the rest to us.
@@ -68,17 +69,17 @@ export default function Home() {
           <div className='mt-12 space-y-16'>
             {[
               {
-                title: 'Choose the Cleaning Type that better fits your needs',
+                title: 'Booking',
                 subtitle: 'Selecione seu tipo de limpeza',
                 text: 'Navegue pelas opções de serviço e escolha aquela que melhor atende suas necessidades.',
               },
               {
-                title: 'Defina Dia e Hora',
+                title: 'Confirmation',
                 subtitle: 'Agende com praticidade',
                 text: 'No calendário, selecione a data e horário que se encaixam na sua rotina.',
               },
               {
-                title: 'Relaxe em Casa',
+                title: 'We Clean',
                 subtitle: 'Nossa equipe cuida de tudo',
                 text: 'Receba nosso cleaner na data marcada e aproveite seu tempo livre enquanto limpamos seu lar.',
               },
@@ -97,11 +98,15 @@ export default function Home() {
 
                 {/* Texto do passo */}
                 <div className='w-full sm:w-1/2'>
-                  <h3 className='text-xl font-semibold'>{step.title}</h3>
-                  <h4 className='text-base font-medium text-brand-700 mt-2'>
+                  <h3 className='text-sm font-semibold text-brand-700'>
+                    {step.title}
+                  </h3>
+                  <h4 className='text-3xl mt-2 font-heading font-semibold'>
                     {step.subtitle}
                   </h4>
-                  <p className='mt-4 text-gray-600'>{step.text}</p>
+                  <p className='mt-4 text-gray-600'>
+                    {step.text}
+                  </p>
                 </div>
               </div>
             ))}
@@ -109,37 +114,13 @@ export default function Home() {
         </MaxWidthWrapper>
       </section>
 
-      <section id='beneficios' className='py-24 sm:py-32 bg-gray-50'>
-        <MaxWidthWrapper className='text-center'>
-          <Heading>Benefícios</Heading>
-          <p className='mt-4 text-base/7 text-gray-600 max-w-prose mx-auto'>
-            Conheça as vantagens de usar CleanUp para manter seu lar sempre
-            impecável:
-          </p>
-          <ul className='mt-6 space-y-4 max-w-prose mx-auto text-left text-base/7 text-gray-600'>
-            <li className='flex items-center gap-2'>
-              <Check className='size-5 text-brand-700' /> Garantia de satisfação
-            </li>
-            <li className='flex items-center gap-2'>
-              <Check className='size-5 text-brand-700' /> Limpadores verificados
-            </li>
-            <li className='flex items-center gap-2'>
-              <Check className='size-5 text-brand-700' /> Agendamento flexível
-            </li>
-            <li className='flex items-center gap-2'>
-              <Check className='size-5 text-brand-700' /> Preços transparentes
-            </li>
-          </ul>
-
-          {/* Placeholder for icons or images */}
-          <div className='mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4'>
-            {/* TODO: Inserir ícones complementares */}
-          </div>
-        </MaxWidthWrapper>
-      </section>
+      <KnowWhatWeOffer />
 
       {/* Seja um Cleaner Section */}
-      <section id='seja-cleaner' className='py-24 sm:py-32 grainy-light border border-neutral-200'>
+      <section
+        id='seja-cleaner'
+        className='py-24 sm:py-32 grainy-light border border-neutral-200'
+      >
         <MaxWidthWrapper className='text-center'>
           <Heading>Be a Cleaner!</Heading>
           <p className='mt-4 text-base/7 text-gray-600 max-w-prose mx-auto'>
@@ -158,7 +139,10 @@ export default function Home() {
           </div>
 
           <div className='mt-8 flex justify-center'>
-            <ShinyButton href='/become-cleaner' className='relative z-10 h-14 text-base shadow-lg hover:shadow-xl'>
+            <ShinyButton
+              href='/become-cleaner'
+              className='relative z-10 h-14 text-base shadow-lg hover:shadow-xl'
+            >
               Join the Crew
             </ShinyButton>
           </div>
