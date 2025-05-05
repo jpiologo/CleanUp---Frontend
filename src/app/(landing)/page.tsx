@@ -16,7 +16,9 @@ export default function Home() {
         <Bubbles count={30} maxSize={150} riseSpeed={40} />
         <MaxWidthWrapper className='text-center relative z-25'>
           <div className='relative mx-auto text-center flex flex-col items-center gap-10'>
-            <p className='text-base/7 text-gray-600 max-w-prose'>House-cleaning Services</p>
+            <p className='text-base/7 text-gray-600 max-w-prose'>
+              House-cleaning Services
+            </p>
             <Heading className='max-w-prose mx-auto w-full md:text-5xl lg:text-6xl'>
               <span>A Spotless Home Whenever you need it,</span>
               <br />
@@ -55,10 +57,7 @@ export default function Home() {
         </MaxWidthWrapper>
       </section>
 
-      <section
-        id='como-funciona'
-        className='snap-start py-24 sm:py-30 grainy-light border border-neutral-200'
-      >
+      <section className='snap-start py-24 sm:py-30 grainy-light border border-neutral-200'>
         <MaxWidthWrapper>
           <Heading className='text-center'>How it Works?</Heading>
           <p className='mt-4 text-center text-base/7 text-gray-600 max-w-prose mx-auto'>
@@ -104,9 +103,7 @@ export default function Home() {
                   <h4 className='text-3xl mt-2 font-heading font-semibold'>
                     {step.subtitle}
                   </h4>
-                  <p className='mt-4 text-gray-600'>
-                    {step.text}
-                  </p>
+                  <p className='mt-4 text-gray-600'>{step.text}</p>
                 </div>
               </div>
             ))}
@@ -117,7 +114,7 @@ export default function Home() {
       <KnowWhatWeOffer />
 
       {/* Seja um Cleaner Section */}
-      <section
+      {/*<section
         id='seja-cleaner'
         className='py-24 sm:py-32 grainy-light border border-neutral-200'
       >
@@ -129,7 +126,7 @@ export default function Home() {
             talent to offer the best possible service to our customers.
           </p>
 
-          {/* Cleaner Icon */}
+          
           <div className='mt-6'>
             <img
               src={CleanerIcon.src}
@@ -147,14 +144,14 @@ export default function Home() {
             </ShinyButton>
           </div>
 
-          {/* Space for testimonial or animation */}
+          
           <div className='mt-8'>
-            {/* TODO: Slider de depoimentos ou animação de onboarding */}
+            
           </div>
         </MaxWidthWrapper>
       </section>
 
-      {/* Planos de Limpeza Section */}
+      
       <section id='planos-de-limpeza' className='py-24 sm:py-32 bg-gray-50'>
         <MaxWidthWrapper className='text-center'>
           <Heading>Planos de Limpeza</Heading>
@@ -165,7 +162,7 @@ export default function Home() {
             labore et dolore magna aliqua.
           </p>
 
-          {/* Placeholder for plan cards */}
+          
           <div className='mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6'>
             {[1, 2, 3].map((_, idx) => (
               <div
@@ -191,7 +188,7 @@ export default function Home() {
             </ShinyButton>
           </div>
         </MaxWidthWrapper>
-      </section>
+      </section>*/}
     </>
   )
 }
