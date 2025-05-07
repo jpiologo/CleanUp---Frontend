@@ -9,6 +9,8 @@ import type { FC } from 'react'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { ShinyButton } from './Shiny-Button'
+import Link from 'next/link'
+import { Button } from './ui/button'
 
 // Dynamically import Slider to avoid SSR issues
 const Slider = dynamic(() => import('react-slick'), { ssr: false })
@@ -36,22 +38,13 @@ const carouselSettings = {
 }
 
 export const KnowWhatWeOffer: FC = () => (
-  <section
-    id='what-we-offer'
-    className='relative py-16 sm:py-24 bg-gradient-to-b from-brand-700 to-brand-800 text-white overflow-hidden'
-  >
-    <div className="absolute inset-0 bg-[url('/pattern-bg.png')] bg-cover bg-center opacity-10" />
-    <MaxWidthWrapper className='relative flex flex-col items-center gap-12 sm:gap-16 z-10'>
-      <div className='text-center animate-fade-in'>
-        <p className='text-base sm:text-lg font-semibold text-brand-200 mb-3 tracking-wide'>
-          Not only a service, a lifestyle
-        </p>
-        <Heading className='max-w-prose mx-auto w-full text-3xl sm:text-4xl font-bold'>
-          Discover What We Offer
-        </Heading>
-      </div>
+  <section className='relative py-16 sm:py-24 bg-gray-50 overflow-hidden'>
+    <MaxWidthWrapper>
+      <Heading className='text-center'>
+        Not only a service, but a lifestyle
+      </Heading>
 
-      <div className='w-full grid grid-cols-1 md:grid-cols-2 grid-rows-[auto_auto_auto] gap-6 sm:gap-8 animate-fade-in-up'>
+      <div className='w-full grid grid-cols-1 md:grid-cols-2 grid-rows-[auto_auto_auto] gap-6 sm:gap-2 animate-fade-in-up mt-20'>
         <div className='row-span-2 bg-white border border-gray-200 rounded-xl shadow-lg p-8 sm:p-10 flex gap-5 flex-col items-center justify-center transition-all hover:shadow-xl hover:-translate-y-1'>
           <div className='relative'>
             <Image
@@ -59,13 +52,11 @@ export const KnowWhatWeOffer: FC = () => (
               alt='Be a Cleaner icon'
               width={140}
               height={140}
-              className='transition-transform hover:scale-105'
+              className='transition-transform'
               priority
             />
           </div>
-          <h3 className='text-2xl sm:text-3xl font-semibold text-gray-900 text-center'>
-            Be a Cleaner!
-          </h3>
+          <Heading className='text-center'>Be a Cleaner</Heading>
           <p className='text-base sm:text-lg text-gray-600 text-center max-w-md'>
             Join our premium cleaning team and transform your career with
             flexible opportunities.
@@ -78,15 +69,15 @@ export const KnowWhatWeOffer: FC = () => (
           </ShinyButton>
         </div>
 
-        <div className='bg-white border border-gray-200 rounded-xl shadow-lg p-6 sm:p-8 transition-all hover:shadow-xl'>
-          <h4 className='text-xl sm:text-2xl font-semibold text-gray-900 mb-4 text-center'>
+        <div className='bg-white rounded-xl shadow-lg p-6 sm:p-8 transition-all hover:shadow-xl hover:-translate-y-1 border border-gray-200'>
+          <h4 className='font-heading sm:text-2xl font-semibold text-gray-900 mb-4 text-center'>
             What Our Clients Say
           </h4>
           {/* biome-ignore lint/a11y/useSemanticElements: <explanation> */}
           <div role='region' aria-label='Testimonial carousel'>
             <Slider {...carouselSettings}>
               <div className='px-4'>
-                <blockquote className='text-base sm:text-lg italic text-gray-600 text-center'>
+                <blockquote className='text-sm italic text-gray-600 text-center'>
                   “CleanUp transformed my routine! Our home has never looked so
                   spotless.”
                 </blockquote>
@@ -95,7 +86,7 @@ export const KnowWhatWeOffer: FC = () => (
                 </p>
               </div>
               <div className='px-4'>
-                <blockquote className='text-base sm:text-lg italic text-gray-600 text-center'>
+                <blockquote className='text-base sm:text-lg text-gray-600 text-center'>
                   “Punctual and attentive professionals. Highly recommend!”
                 </blockquote>
                 <p className='mt-3 text-sm font-medium text-gray-900 text-center'>
@@ -116,17 +107,17 @@ export const KnowWhatWeOffer: FC = () => (
               tailored services.
             </p>
           </div>
-          <a
-            href='/plans'
+          <Link
+            href={'/plans'}
             className='mt-6 inline-block text-base font-semibold text-brand-600 hover:text-brand-700 transition-colors'
             aria-label='Learn more about subscription plans'
           >
             Know More →
-          </a>
+          </Link>
         </div>
 
         <div className='bg-white border border-gray-200 rounded-xl shadow-lg p-8 flex items-center justify-center transition-all hover:shadow-xl hover:-translate-y-1'>
-          <span className='text-base sm:text-lg text-gray-500 font-medium'>
+          <span className='text-base sm:text-lg font-medium'>
             More Features Coming Soon
           </span>
         </div>
