@@ -43,8 +43,11 @@ export const KnowWhatWeOffer: FC = () => (
       <Heading className='text-center'>
         Not only a service, but a lifestyle
       </Heading>
+      <p className='mt-4 text-center text-base/7 text-gray-600 max-w-prose mx-auto'>
+        Get to know everything we offer to make your life easier and cleaner.
+      </p>
 
-      <div className='w-full grid grid-cols-1 md:grid-cols-2 grid-rows-[auto_auto_auto] gap-6 sm:gap-2 animate-fade-in-up mt-20'>
+      <div className='w-full grid grid-cols-1 md:grid-cols-2 grid-rows-[auto_auto_auto] gap-6 sm:gap-2 animate-fade-in-up mt-12'>
         <div className='row-span-2 bg-white border border-gray-200 rounded-xl shadow-lg p-8 sm:p-10 flex gap-5 flex-col items-center justify-center transition-all hover:shadow-xl hover:-translate-y-1'>
           <div className='relative'>
             <Image
@@ -56,7 +59,9 @@ export const KnowWhatWeOffer: FC = () => (
               priority
             />
           </div>
-          <Heading className='text-center'>Be a Cleaner</Heading>
+          <h4 className='text-xl sm:text-2xl font-semibold text-gray-900 mb-2'>
+            Be a Cleaner
+          </h4>
           <p className='text-base sm:text-lg text-gray-600 text-center max-w-md'>
             Join our premium cleaning team and transform your career with
             flexible opportunities.
@@ -109,7 +114,7 @@ export const KnowWhatWeOffer: FC = () => (
           </div>
           <Link
             href={'/plans'}
-            className='mt-6 inline-block text-base font-semibold text-brand-600 hover:text-brand-700 transition-colors'
+            className='mt-6 w-fit text-base font-semibold text-brand-600 hover:text-brand-700 transition-colors'
             aria-label='Learn more about subscription plans'
           >
             Know More →
