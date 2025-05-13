@@ -1,13 +1,15 @@
+'use client'
+
 import { ShinyButton } from '@/components/Shiny-Button'
 import { Heading } from '@/components/Heading'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import { Check, ArrowRight } from 'lucide-react'
 import Bubbles from '@/components/Bubbles'
-import CleanerIcon from '../../../public/CleanerImg.png'
-import Step1Icon from '../../../public/RequestAClean.png'
-import Step2Icon from '../../../public/CleanerNotification.png'
-import Step3Icon from '../../../public/HelloCleaner.png'
+import Step1Icon from '../../../public/Dirty.png'
+import Step2Icon from '../../../public/CleanerRings.png'
+import Step3Icon from '../../../public/CleanerArriving.png'
 import { KnowWhatWeOffer } from '@/components/KnowWhatWeOffer'
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -68,30 +70,41 @@ export default function Home() {
           <div className='mt-12 space-y-16'>
             {[
               {
-                title: 'Booking',
-                subtitle: 'Selecione seu tipo de limpeza',
-                text: 'Navegue pelas opções de serviço e escolha aquela que melhor atende suas necessidades.',
+                title: 'Book Your Clean',
+                subtitle: 'Choose the Perfect Cleaning Service',
+                text: 'Explore our range of tailored cleaning options and effortlessly select the service that fits your lifestyle and needs.',
+                image: Step1Icon,
+                alt: 'Booking step',
               },
               {
-                title: 'Confirmation',
-                subtitle: 'Agende com praticidade',
-                text: 'No calendário, selecione a data e horário que se encaixam na sua rotina.',
+                title: 'Confirm with Confidence',
+                subtitle: 'Schedule at Your Convenience',
+                text: 'Pick a date and time that seamlessly aligns with your busy schedule using our intuitive calendar—hassle-free and flexible!',
+                image: Step2Icon,
+                alt: 'Confirmation step',
               },
               {
-                title: 'We Clean',
-                subtitle: 'Nossa equipe cuida de tudo',
-                text: 'Receba nosso cleaner na data marcada e aproveite seu tempo livre enquanto limpamos seu lar.',
+                title: 'Relax, We’ve Got It Covered',
+                subtitle: 'Our Expert Team Handles Everything',
+                text: 'Welcome our professional cleaners on your chosen day and reclaim your time while we transform your home into a spotless sanctuary.',
+                image: Step3Icon,
+                alt: 'Cleaning step',
               },
             ].map((step, idx) => (
               <div
                 // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                 key={idx}
-                className={`flex flex-col sm:flex-row ${idx % 2 === 1 ? 'sm:flex-row-reverse' : ''} items-center gap-8`}
+                className={`flex flex-col sm:flex-row ${idx % 2 === 1 ? 'sm:flex-row-reverse' : ''} items-center`}
               >
-                {/* Placeholder de imagem: substitua pela sua imagem real */}
-                <div className='w-full sm:w-1/2'>
-                  <div className='bg-gray-100 w-full h-64 rounded-lg flex items-center justify-center'>
-                    Imagem Passo {idx + 1}
+                <div className='w-full sm:w-1/3'>
+                  <div className='bg-transparent w-full h-64 rounded-lg flex items-center justify-center'>
+                    <Image
+                      src={step.image.src}
+                      alt={step.alt}
+                      width={250}
+                      height={250}
+                      className='rounded-lg object-contain'
+                    />
                   </div>
                 </div>
 

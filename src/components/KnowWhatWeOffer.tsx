@@ -53,13 +53,13 @@ export const KnowWhatWeOffer: FC = () => (
             <Image
               src={CleanerIcon.src}
               alt='Be a Cleaner icon'
-              width={140}
-              height={140}
+              width={150}
+              height={150}
               className='transition-transform'
               priority
             />
           </div>
-          <h4 className='text-xl sm:text-2xl font-semibold text-gray-900 mb-2'>
+          <h4 className='text-xl sm:text-2xl font-semibold text-gray-900'>
             Be a Cleaner
           </h4>
           <p className='text-base sm:text-lg text-gray-600 text-center max-w-md'>
@@ -75,14 +75,14 @@ export const KnowWhatWeOffer: FC = () => (
         </div>
 
         <div className='bg-white rounded-xl shadow-lg p-6 sm:p-8 transition-all hover:shadow-xl hover:-translate-y-1 border border-gray-200'>
-          <h4 className='font-heading sm:text-2xl font-semibold text-gray-900 mb-4 text-center'>
+          <h4 className='sm:text-2xl font-semibold text-gray-900 mb-4 text-center'>
             What Our Clients Say
           </h4>
           {/* biome-ignore lint/a11y/useSemanticElements: <explanation> */}
           <div role='region' aria-label='Testimonial carousel'>
             <Slider {...carouselSettings}>
               <div className='px-4'>
-                <blockquote className='text-sm italic text-gray-600 text-center'>
+                <blockquote className='text-gray-600 italic text-center'>
                   “CleanUp transformed my routine! Our home has never looked so
                   spotless.”
                 </blockquote>
@@ -94,7 +94,7 @@ export const KnowWhatWeOffer: FC = () => (
                 <blockquote className='text-base sm:text-lg text-gray-600 text-center'>
                   “Punctual and attentive professionals. Highly recommend!”
                 </blockquote>
-                <p className='mt-3 text-sm font-medium text-gray-900 text-center'>
+                <p className='mt-3 mb-5 text-sm font-medium text-gray-900 text-center'>
                   — João Pereira
                 </p>
               </div>
@@ -107,7 +107,7 @@ export const KnowWhatWeOffer: FC = () => (
             <h4 className='text-xl sm:text-2xl font-semibold text-gray-900 mb-2'>
               Subscription Plans
             </h4>
-            <p className='text-base sm:text-lg text-gray-600'>
+            <p className='text-base text-gray-600'>
               Choose from weekly, monthly, or annual plans for seamless,
               tailored services.
             </p>
@@ -123,7 +123,7 @@ export const KnowWhatWeOffer: FC = () => (
 
         <div className='bg-white border border-gray-200 rounded-xl shadow-lg p-8 flex items-center justify-center transition-all hover:shadow-xl hover:-translate-y-1'>
           <span className='text-base sm:text-lg font-medium'>
-            More Features Coming Soon
+            More Features Coming Soon...
           </span>
         </div>
       </div>
