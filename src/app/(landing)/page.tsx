@@ -10,6 +10,7 @@ import Step2Icon from '../../../public/CleanerRings.png'
 import Step3Icon from '../../../public/CleanerArriving.png'
 import { KnowWhatWeOffer } from '@/components/KnowWhatWeOffer'
 import Image from 'next/image'
+import { cn } from '@/lib/utils'
 
 export default function Home() {
   return (
@@ -96,14 +97,14 @@ export default function Home() {
                 key={idx}
                 className={`flex flex-col sm:flex-row ${idx % 2 === 1 ? 'sm:flex-row-reverse' : ''} items-center`}
               >
-                <div className='w-full sm:w-1/3'>
+                <div className='w-full sm:w-1/3 my-5'>
                   <div className='bg-transparent w-full h-64 rounded-lg flex items-center justify-center'>
                     <Image
                       src={step.image.src}
                       alt={step.alt}
-                      width={250}
-                      height={250}
-                      className='rounded-lg object-contain'
+                      width={1980}
+                      height={1080}
+                      className={`rounded-lg object-contain w-full ${idx % 2 === 1 ? 'size-90' : ''} size-70`}
                     />
                   </div>
                 </div>
@@ -125,83 +126,6 @@ export default function Home() {
       </section>
 
       <KnowWhatWeOffer />
-
-      {/* Seja um Cleaner Section */}
-      {/*<section
-        id='seja-cleaner'
-        className='py-24 sm:py-32 grainy-light border border-neutral-200'
-      >
-        <MaxWidthWrapper className='text-center'>
-          <Heading>Be a Cleaner!</Heading>
-          <p className='mt-4 text-base/7 text-gray-600 max-w-prose mx-auto'>
-            If you are a cleaning professional and want to be part of our team,
-            fill out the form and contact us. We are always looking for new
-            talent to offer the best possible service to our customers.
-          </p>
-
-          
-          <div className='mt-6'>
-            <img
-              src={CleanerIcon.src}
-              alt='Cleaner Icon'
-              className='mx-auto size-44'
-            />
-          </div>
-
-          <div className='mt-8 flex justify-center'>
-            <ShinyButton
-              href='/become-cleaner'
-              className='relative z-10 h-14 text-base shadow-lg hover:shadow-xl'
-            >
-              Join the Crew
-            </ShinyButton>
-          </div>
-
-          
-          <div className='mt-8'>
-            
-          </div>
-        </MaxWidthWrapper>
-      </section>
-
-      
-      <section id='planos-de-limpeza' className='py-24 sm:py-32 bg-gray-50'>
-        <MaxWidthWrapper className='text-center'>
-          <Heading>Planos de Limpeza</Heading>
-          <p className='mt-4 text-base/7 text-gray-600 max-w-prose mx-auto'>
-            Possuímos um grande leque de serviços para te ajudar a decidir o
-            melhor tipo de limpeza para seu caso. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua.
-          </p>
-
-          
-          <div className='mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6'>
-            {[1, 2, 3].map((_, idx) => (
-              <div
-                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                key={idx}
-                className='border rounded-lg p-6 bg-white shadow-sm flex flex-col'
-              >
-                <h4 className='font-semibold text-lg mb-2'>Plano {idx + 1}</h4>
-                <p className='text-base/7 text-gray-600 flex-grow'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer nec odio.
-                </p>
-                <ShinyButton href='/plans' className='mt-4 h-12'>
-                  Ver Detalhes
-                </ShinyButton>
-              </div>
-            ))}
-          </div>
-
-          <div className='mt-10'>
-            <ShinyButton href='/plans' className='h-14 px-10'>
-              Ver Planos
-            </ShinyButton>
-          </div>
-        </MaxWidthWrapper>
-      </section>*/}
     </>
   )
 }

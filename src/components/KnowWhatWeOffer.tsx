@@ -1,5 +1,6 @@
 'use client'
 
+import type React from 'react'
 import { Heading } from '@/components/Heading'
 import MaxWidthWrapper from './MaxWidthWrapper'
 import CleanerIcon from '../../public/CleanerImg.png'
@@ -10,7 +11,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { ShinyButton } from './Shiny-Button'
 import Link from 'next/link'
-import { Button } from './ui/button'
+import { Star } from 'lucide-react'
 
 // Dynamically import Slider to avoid SSR issues
 const Slider = dynamic(() => import('react-slick'), { ssr: false })
@@ -36,6 +37,33 @@ const carouselSettings = {
     <button className='w-2.5 h-2.5 bg-brand-300 rounded-full transition-all hover:bg-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2' />
   ),
 }
+
+// Testimonial data and types
+export interface Testimonial {
+  quote: string
+  author: string
+  rating: number // 1 até 5
+}
+
+const testimonialsData: Testimonial[] = [
+  {
+    quote:
+      'CleanUp transformed my routine! Our home has never looked so spotless.',
+    author: 'Maria Silva',
+    rating: 5,
+  },
+  {
+    quote: 'Punctual and attentive professionals. Highly recommend!',
+    author: 'João Pereira',
+    rating: 4,
+  },
+  {
+    quote: 'I can trust CleanUp to keep my home clean. Their service is top-notch!',
+    author: 'João Piologo',
+    rating: 4,
+  },
+  
+]
 
 export const KnowWhatWeOffer: FC = () => (
   <section className='relative py-16 sm:py-24 bg-gray-50 overflow-hidden'>
@@ -74,6 +102,7 @@ export const KnowWhatWeOffer: FC = () => (
           </ShinyButton>
         </div>
 
+        {/* Testimonials Section */}
         <div className='bg-white rounded-xl shadow-lg p-6 sm:p-8 transition-all hover:shadow-xl hover:-translate-y-1 border border-gray-200'>
           <h4 className='sm:text-2xl font-semibold text-gray-900 mb-4 text-center'>
             What Our Clients Say
@@ -81,23 +110,30 @@ export const KnowWhatWeOffer: FC = () => (
           {/* biome-ignore lint/a11y/useSemanticElements: <explanation> */}
           <div role='region' aria-label='Testimonial carousel'>
             <Slider {...carouselSettings}>
-              <div className='px-4'>
-                <blockquote className='text-gray-600 italic text-center'>
-                  “CleanUp transformed my routine! Our home has never looked so
-                  spotless.”
-                </blockquote>
-                <p className='mt-3 text-sm font-medium text-gray-900 text-center'>
-                  — Maria Silva
-                </p>
-              </div>
-              <div className='px-4'>
-                <blockquote className='text-base sm:text-lg text-gray-600 text-center'>
-                  “Punctual and attentive professionals. Highly recommend!”
-                </blockquote>
-                <p className='mt-3 mb-5 text-sm font-medium text-gray-900 text-center'>
-                  — João Pereira
-                </p>
-              </div>
+              {testimonialsData.map(({ quote, author, rating }, idx) => (
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                <div className='px-4 my-4' key={idx}>
+                  <blockquote className='text-gray-600 text-center'>
+                    <em>
+                      <q>{quote}</q>
+                    </em>
+                  </blockquote>
+
+                  <div className=' flex justify-center space-x-1 mt-5'>
+                    {[...Array(rating)].map((_, i) => (
+                      <Star
+                        // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                        key={i}
+                        className={'size-4 text-yellow-400 fill-yellow-400'}
+                      />
+                    ))}
+                  </div>
+
+                  <p className='mt-5 text-sm font-medium text-gray-900 text-center'>
+                    — {author}
+                  </p>
+                </div>
+              ))}
             </Slider>
           </div>
         </div>
@@ -121,8 +157,8 @@ export const KnowWhatWeOffer: FC = () => (
           </Link>
         </div>
 
-        <div className='bg-white border border-gray-200 rounded-xl shadow-lg p-8 flex items-center justify-center transition-all hover:shadow-xl hover:-translate-y-1'>
-          <span className='text-base sm:text-lg font-medium'>
+        <div className='bg-white border border-gray-200 rounded-xl shadow-lg p-8 flex items-center transition-all hover:shadow-xl hover:-translate-y-1'>
+          <span className='text-sm font-semibold'>
             More Features Coming Soon...
           </span>
         </div>
