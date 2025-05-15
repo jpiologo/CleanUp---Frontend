@@ -32,9 +32,12 @@ export const Navbar = async () => {
           <div className='h-full flex items-center space-x-4'>
             {user ? (
               <>
-                <Button size='sm' variant='ghost'>
-                  Sign out
-                </Button>
+                <Link
+                  href='/sign-out'
+                  className={buttonVariants({ size: 'sm', variant: 'ghost' })}
+                >
+                  Sign Out
+                </Link>
 
                 <Link
                   href='/dashboard'
