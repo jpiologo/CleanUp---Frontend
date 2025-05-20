@@ -2,8 +2,8 @@ import { Navbar } from '@/components/Navbar'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Sign in • CleanUp',
-  description: 'Welcome back! Please sign in to your account.',
+  title: 'Sign Up • CleanUp',
+  description: 'Register your account to start using CleanUp.',
 }
 
 export default function LoginLayout({
