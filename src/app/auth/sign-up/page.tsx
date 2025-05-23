@@ -40,9 +40,9 @@ export default function SignUpPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-gray-50">
+    <div className="flex flex-col bg-gray-50">
       {/* Form Container */}
-      <div className="flex flex-1 items-center justify-center">
+      <div className="flex mt-20 flex-1 items-center justify-center">
         <MaxWidthWrapper className="w-full max-w-lg py-4">
           <div className="max-h-[calc(100vh-4rem-2rem)] overflow-hidden rounded-2xl bg-white p-8 shadow-xl ring-1 ring-gray-900/5">
             <Heading className="mb-6 text-center">Create your account</Heading>
@@ -128,7 +128,7 @@ export default function SignUpPage() {
             <p className="mt-6 text-center text-sm text-gray-600">
               Already have an account?
               <Link
-                href="/login"
+                href="sign-in"
                 className="ml-1 inline-flex items-center gap-1 font-medium text-brand-700 hover:underline"
               >
                 Sign in <ArrowRight className="size-4" />

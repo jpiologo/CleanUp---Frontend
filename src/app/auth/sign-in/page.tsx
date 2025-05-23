@@ -39,18 +39,15 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-gray-50">
-      {/* Spacer for Navbar */}
-      {/* Form Container */}
+    <div className="flex flex-col bg-gray-50">
       <div className="flex flex-1 items-center justify-center">
         <MaxWidthWrapper className="w-full max-w-lg py-4">
-          <div className="rounded-2xl bg-white p-8 shadow-xl ring-1 ring-gray-900/5 max-h-[calc(100vh-4rem-2rem)] overflow-hidden">
+          <div className="rounded-2xl mt-20 bg-white p-8 shadow-xl ring-1 ring-gray-900/5 max-h-[calc(100vh-4rem-2rem)] overflow-hidden">
             <Heading className="mb-6 text-center">
               Welcome back!
             </Heading>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-              {/* E‑mail */}
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium text-gray-700">
                   E‑mail
@@ -61,7 +58,6 @@ export default function LoginPage() {
                 )}
               </div>
 
-              {/* Senha */}
               <div className="space-y-2">
                 <label htmlFor="password" className="text-sm font-medium text-gray-700">
                   Password
@@ -90,7 +86,7 @@ export default function LoginPage() {
 
               {serverError && <p className="text-sm text-red-600">{serverError}</p>}
 
-              <Button type="submit" className="h-12 w-full" disabled={isSubmitting}>
+              <Button type="submit" className="h-12 w-full cursor-pointer" disabled={isSubmitting}>
                 {isSubmitting ? 'Signing in…' : 'Sign in'}
               </Button>
             </form>
@@ -98,7 +94,7 @@ export default function LoginPage() {
             <p className="mt-6 text-center text-sm text-gray-600">
               Don’t have an account?
               <Link
-                href="/sign-up"
+                href="sign-up"
                 className="ml-1 inline-flex items-center gap-1 font-medium text-brand-700 hover:underline"
               >
                 Sign up <ArrowRight className="size-4" />

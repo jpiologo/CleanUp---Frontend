@@ -19,7 +19,14 @@ export async function loginRequest(data: LoginInput) {
 
   if (!res.ok) {
     const payload = await res.json().catch(() => null)
-    throw new Error(payload?.message ?? 'Credenciais inválidas')
+    const statusMessages: Record<number, string> = {
+      401: 'Credenciais inválidas',
+      429: 'Muitas tentativas, tente novamente mais tarde',
+      500: 'Erro interno do servidor',
+    }
+    throw new Error(
+      payload?.message ?? statusMessages[res.status] ?? 'Erro desconhecido',
+    )
   }
 
   return res.json()
