@@ -64,7 +64,7 @@ export async function loginRequest(data: LoginInput) {
 export async function signUpRequest(data: SignUpInput) {
   const { name, email, password } = signUpSchema.parse(data)
 
-  const res = await fetch('/api/auth/sign-up', {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
