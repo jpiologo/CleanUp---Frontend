@@ -16,13 +16,16 @@ export type LoginInput = z.infer<typeof loginSchema>
 
 export const signUpSchema = z
   .object({
-    name: z.string().min(2, 'Name must be at least 2 characters'),
+    firstName: z.string().min(2, 'First Name must be at least 2 characters'),
+    lastName: z.string().min(2, 'Last name must be at least 2 characters'),
     email: z
       .string()
       .min(1, 'E‑mail is required')
       .email('Provide a valid e‑mail address'),
     password: z.string().min(8, 'Password must be at least 8 characters'),
     confirmPassword: z.string(),
+    identityDocument: z.string().min(11, 'Invalid identity document').max(11, 'Invalid identity document'),
+    phone: z.string().min(9, 'Invalid phone number').max(11, 'Invalid phone number'),
   })
   .refine(data => data.password === data.confirmPassword, {
     path: ['confirmPassword'],
@@ -62,14 +65,14 @@ export async function loginRequest(data: LoginInput) {
 }
 
 export async function signUpRequest(data: SignUpInput) {
-  const { name, email, password } = signUpSchema.parse(data)
+  const { firstName, lastName, email, password, identityDocument, phone } = signUpSchema.parse(data)
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ name, email, password }),
+    body: JSON.stringify({ firstName, lastName, email, password, identityDocument, phone }),
   })
 
   if (!res.ok) throw await parseError(res)
